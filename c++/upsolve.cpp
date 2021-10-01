@@ -56,7 +56,7 @@ ll nCr(ll n,ll r)
 
   if(r>n)return 0;
   if(r<0)return 0;
-  return (((fact[n]*inv[r]))*inv[n-r]);
+  return (((fact[n]*inv[r])%mod)*inv[n-r])%mod;
 }
 int main()
 {
