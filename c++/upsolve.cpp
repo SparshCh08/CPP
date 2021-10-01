@@ -31,61 +31,39 @@ using namespace std;
 #define sync ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 const ll MX=200010;
 const ll mod=1e9+7;
-// ll fact[MX],inv[MX];
+ll fact[MX],inv[MX];
 
-// ll power(ll x,ll y)
-// {
-//   if (y==0)return 1;
-//   ll p=power(x, y / 2) % mod;
-//   p=(p*p) % mod; 
-//   return (y % 2 == 0) ? p : (x * p) % mod;
-// }
+ll power(ll x,ll y)
+{
+  if (y==0)return 1;
+  ll p=power(x, y / 2) % mod;
+  p=(p*p) % mod; 
+  return (y % 2 == 0) ? p : (x * p) % mod;
+}
 
-// void fac()
-// {
-//   fa(i,1,MX-1)
-//   {
-//     fact[i]=(fact[i-1]*i)%mod;
-//     inv[i]=power(fact[i],mod-2)%mod;
-//   }
-//   return;
-// }
+void fac()
+{
+  fa(i,1,MX-1)
+  {
+    fact[i]=(fact[i-1]*i)%mod;
+    inv[i]=power(fact[i],mod-2)%mod;
+  }
+  return;
+}
 
-// ll nCr(ll n,ll r)
-// {
+ll nCr(ll n,ll r)
+{
 
-//   if(r>n)return 0;
-//   if(r<0)return 0;
-//   return (((fact[n]*inv[r]))*inv[n-r]);
-// }
+  if(r>n)return 0;
+  if(r<0)return 0;
+  return (((fact[n]*inv[r]))*inv[n-r]);
+}
 int main()
 {
   sync
   //try:)
   T{
-    ll n,x,ans=0;
-    cin>>n;
-    ll temp[n+1]={};
-    f0(i,n)
-    {
-      cin>>x;
-      temp[x]++;
-    }
-    f1(i,n)
-    {
-      temp[i]+=temp[i-1];
-    }
-    ll l=temp[min(3ll,n)];
-    ans=(l*(l-1)*(l-2))/6;
-    fa(i,2,n-2)
-    {
-      ll total=temp[i+2]-temp[i-1];
-      ll total1=temp[i+1]-temp[i-1];
-      ans+=(total*(total-1)*(total-2))/6;
-      ans-=(total1*(total1-1)*(total1-2))/6;
-    }
-    cout<<ans;
-    sn
+    // Your code here 
   }
   return 0;
 }
